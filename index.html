@@ -3,73 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Blog</title>
+    <title>Keshav | SRE & Developer</title>
     <style>
-        /* This makes the page look nice */
+        :root {
+            --bg: #0d1117; /* GitHub Dark Blue/Black */
+            --text: #e6edf3;
+            --accent: #58a6ff; /* Professional Blue */
+            --card-bg: #161b22;
+            --border: #30363d;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: #f4f4f9;
+            padding: 4rem 2rem;
         }
+
+        /* Hero Section */
         header {
-            background-color: #24292e;
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
         }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #8b949e;
+            margin-top: 0.5rem;
+        }
+
+        /* Project/Post Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
         .card {
-            background: white;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .tag {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
             margin-bottom: 1rem;
         }
-        h1 { margin: 0; }
-        .tag {
-            background: #e1e4e8;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         footer {
+            margin-top: 5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
             text-align: center;
-            margin-top: 3rem;
-            font-size: 0.8rem;
-            color: #666;
+            color: #8b949e;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Tech Blog</h1>
-        <p>Learning in public and sharing my journey</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Hi, I'm Keshav</h1>
+            <p class="subtitle">Building reliable systems and exploring the web.</p>
+            <p>Welcome to my personal corner of the internet. I'm a tech enthusiast currently focusing on automation, cloud infrastructure, and sharing what I learn along the way.</p>
+        </header>
 
-    <div class="card">
-        <h2>Hello World! 🚀</h2>
-        <p>This is my very first blog post hosted on <strong>GitHub Pages</strong>. I'm currently setting up my personal space on the web to document my learning journey.</p>
-        <span class="tag">#Personal</span> <span class="tag">#Learning</span>
+        <section>
+            <h2>What I'm Building</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="tag">Active</span>
+                    <h3>My Personal Blog</h3>
+                    <p>A minimalist space built with HTML and GitHub Pages to document my journey in tech.</p>
+                    <a href="#">Read more →</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag">Project</span>
+                    <h3>Automation Scripts</h3>
+                    <p>Collection of Python and Bash scripts to simplify daily developer workflows.</p>
+                    <a href="#">View Code →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Keshav | Built with ❤️ on a Mac</p>
+            <p>
+                <a href="https://github.com/keshavtej">GitHub</a> • 
+                <a href="https://www.linkedin.com/in/keshava-m-b928a699/">LinkedIn</a>
+            </p>
+        </footer>
     </div>
-
-    <div class="card">
-        <h2>Current Goals</h2>
-        <ul>
-            <li>Setup this static blog site</li>
-            <li>Master VS Code and Git workflows</li>
-            <li>Write about tech and engineering</li>
-        </ul>
-    </div>
-
-    <footer>
-        <p>Built with ❤️ on a Mac</p>
-    </footer>
 
 </body>
 </html>
