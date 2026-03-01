@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshav | SRE</title>
+    <title>Keshav | System Reliability</title>
     <style>
         :root {
             --bg: #ffffff;
@@ -30,7 +30,7 @@
             padding: 80px 24px;
         }
 
-        /* --- Header: Split Layout for Badge --- */
+        /* --- Header --- */
         header {
             display: flex;
             align-items: center;
@@ -67,18 +67,45 @@
         .hero-sub { font-size: 24px; color: var(--text-muted); font-weight: 400; }
         .hero-sub strong { color: var(--text-main); font-weight: 600; }
 
-        /* Badge Container Styling */
         .linkedin-badge-container {
             min-width: 250px;
             display: flex;
             justify-content: center;
         }
 
-        /* --- About Section --- */
+        /* --- About & Skills Section --- */
         .about-section { margin-bottom: 80px; }
         .about-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
         .about-text { font-size: 18px; color: var(--text-muted); line-height: 1.8; max-width: 800px; }
         .about-text p { margin-bottom: 20px; }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            font-family: "SF Mono", monospace;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--code-bg);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: #fff;
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+        }
 
         /* --- Projects --- */
         .section-title { font-size: 28px; font-weight: 700; margin-bottom: 30px; }
@@ -158,11 +185,11 @@
             </div>
 
             <div class="linkedin-badge-container">
-                <div class="badge-base LI-profile-badge" 
+                <div class="badge-base LI-profile-badge"
                      data-locale="en_US" 
-                     data-size="medium" 
+                     data-size="large" 
                      data-theme="light" 
-                     data-type="VERTICAL" 
+                     data-type="HORIZONTAL" 
                      data-vanity="keshava-m-b928a699" 
                      data-version="v1">
                      <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/keshava-m-b928a699?trk=profile-badge"></a>
@@ -174,11 +201,24 @@
             <h2>About Me</h2>
             <div class="about-text">
                 <p>
-                    I am a <strong>Site Reliability Engineer at Copart</strong>, dedicated to bridging the gap between large-scale infrastructure and seamless system performance. With a robust background in system administration and SRE experience, I focus on maintaining the critical balance between rapid innovation and rock-solid reliability.
+                    I am a <strong>Site Reliability Engineer at Copart</strong>, operating at the intersection of robust system administration and advanced site reliability engineering. My expertise lies in architecting resilient infrastructure and implementing SRE principles to ensure seamless, large-scale system performance.
                 </p>
                 <p>
-                    My approach centers on fostering collaborative environments where high operational efficiency and technical support go hand-in-hand. I am passionate about engineering scalable solutions that automate manual toil and ensure that technology remains a robust engine for delivering organizational success.
+                    With a deep-rooted background in systems engineering, I focus on bridging the gap between traditional operations and modern reliability practices. I am passionate about driving operational excellence through automation, minimizing toil, and building scalable technology solutions that align with critical mission goals.
                 </p>
+            </div>
+
+            <div class="skills-grid">
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">RabbitMQ</span>
+                <span class="skill-tag">Solr</span>
+                <span class="skill-tag">Zookeeper</span>
+                <span class="skill-tag">New Relic</span>
+                <span class="skill-tag">Git & GitHub</span>
             </div>
         </section>
 
