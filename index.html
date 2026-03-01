@@ -3,100 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshav | SRE & Developer</title>
+    <title>Keshav | SRE</title>
     <style>
         :root {
-            --bg: #0d1117; /* GitHub Dark Blue/Black */
-            --text: #e6edf3;
-            --accent: #58a6ff; /* Professional Blue */
-            --card-bg: #161b22;
-            --border: #30363d;
+            --bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent: #0066cc;
+            --code-bg: #f5f5f7;
+            --border: #d2d2d7;
         }
 
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            color: var(--text-main);
             margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 80px 24px;
         }
 
-        /* Hero Section */
+        /* --- Header --- */
         header {
-            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 80px;
         }
+
+        .hero-text { flex: 1; }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%; 
+            border: 4px solid #fff;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "SF Mono", monospace;
+            font-size: 13px;
+            background: var(--code-bg);
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .dot { height: 8px; width: 8px; background-color: #28a745; border-radius: 50%; }
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: var(--accent);
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
         }
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: #8b949e;
-            margin-top: 0.5rem;
+        .hero-sub { font-size: 24px; color: var(--text-muted); font-weight: 400; }
+        .hero-sub strong { color: var(--text-main); font-weight: 600; }
+
+        /* --- About Section --- */
+        .about-section {
+            margin-bottom: 80px;
         }
 
-        /* Project/Post Cards */
-        .grid {
+        .about-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* --- Projects --- */
+        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 30px; }
+        
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--accent);
-        }
-
-        .tag {
-            display: inline-block;
-            background: #238636;
-            color: white;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.6rem;
+        .project-card {
+            background: var(--code-bg);
+            padding: 30px;
             border-radius: 20px;
-            margin-bottom: 1rem;
-        }
-
-        /* Links */
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            margin-top: 5rem;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
+            border: 1px solid var(--border);
+            opacity: 0.8;
             text-align: center;
-            color: #8b949e;
+        }
+
+        .project-tag {
+            font-family: "SF Mono", monospace;
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .project-card h3 { margin: 0 0 10px 0; font-size: 20px; }
+        .project-card p { font-size: 15px; color: var(--text-muted); margin: 0; }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links { display: flex; gap: 20px; }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-muted) !important;
+            font-size: 13px;
+        }
+
+        .social-link img { width: 14px; height: 14px; opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column-reverse; text-align: center; }
+            h1 { font-size: 42px; }
+            footer { flex-direction: column-reverse; gap: 24px; align-items: flex-start; }
         }
     </style>
 </head>
@@ -104,36 +165,58 @@
 
     <div class="container">
         <header>
-            <h1>Hi, I'm Keshav</h1>
-            <p class="subtitle">Building reliable systems and exploring the web.</p>
-            <p>Welcome to my personal corner of the internet. I'm a tech enthusiast currently focusing on automation, cloud infrastructure, and sharing what I learn along the way.</p>
+            <div class="hero-text">
+                <div class="status-badge">
+                    <span class="dot"></span> system_status = online
+                </div>
+                <h1>I'm Keshav.</h1>
+                <p class="hero-sub">
+                    <strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.
+                </p>
+            </div>
+            <img src="images/keshav.jpg" alt="Keshav" class="profile-img">
         </header>
 
-        <section>
-            <h2>What I'm Building</h2>
-            <div class="grid">
-                <div class="card">
-                    <span class="tag">Active</span>
-                    <h3>My Personal Blog</h3>
-                    <p>A minimalist space built with HTML and GitHub Pages to document my journey in tech.</p>
-                    <a href="#">Read more →</a>
-                </div>
-
-                <div class="card">
-                    <span class="tag">Project</span>
-                    <h3>Automation Scripts</h3>
-                    <p>Collection of Python and Bash scripts to simplify daily developer workflows.</p>
-                    <a href="#">View Code →</a>
-                </div>
+        <section class="about-section">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    I am a <strong>Site Reliability Engineer at Copart</strong>, dedicated to bridging the gap between large-scale infrastructure and seamless system performance. With a robust background in system administration and SRE experience, I focus on maintaining the critical balance between rapid innovation and rock-solid reliability.
+                </p>
+                <p>
+                    My approach centers on fostering collaborative environments where high operational efficiency and technical support go hand-in-hand. I am passionate about engineering scalable solutions that automate manual toil and ensure that technology remains a robust engine for delivering organizational success.
+                </p>
             </div>
         </section>
 
+        <h2 class="section-title">Personal Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="project-tag">Coming Soon</span>
+                <h3>My Personal Blog</h3>
+                <p>A minimalist space built with HTML and GitHub Pages to document my journey in technology and systems engineering.</p>
+            </div>
+        </div>
+
         <footer>
-            <p>&copy; 2026 Keshav | Built with ❤️ on a Mac</p>
-            <p>
-                <a href="https://github.com/keshavtej">GitHub</a> • 
-                <a href="https://www.linkedin.com/in/keshava-m-b928a699/">LinkedIn</a>
-            </p>
+            <p style="font-size: 12px; color: var(--text-muted);">Copyright © 2026 Keshav. All rights reserved.</p>
+            <div class="social-links">
+                <a href="resume.pdf" class="social-link" target="_blank">
+                    <img src="icons/resume.png" alt=""> Resume
+                </a>
+                <a href="mailto:keshav.tej@email.com" class="social-link">
+                    <img src="icons/gmail.png" alt=""> Email
+                </a>
+                <a href="https://wa.me/918801080683" class="social-link">
+                    <img src="icons/whatsapp.png" alt=""> WhatsApp
+                </a>
+                <a href="https://linkedin.com/in/keshavtej" class="social-link">
+                    <img src="icons/linkedin.png" alt=""> LinkedIn
+                </a>
+                <a href="https://github.com/keshavtej" class="social-link">
+                    <img src="icons/github.png" alt=""> GitHub
+                </a>
+            </div>
         </footer>
     </div>
 
