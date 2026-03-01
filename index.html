@@ -30,7 +30,7 @@
             padding: 80px 24px;
         }
 
-        /* --- Header --- */
+        /* --- Header: Split Layout for Badge --- */
         header {
             display: flex;
             align-items: center;
@@ -40,19 +40,6 @@
         }
 
         .hero-text { flex: 1; }
-
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center 20%; 
-            border: 4px solid #fff;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease;
-        }
-
-        .profile-img:hover { transform: scale(1.05); }
 
         .status-badge {
             display: inline-flex;
@@ -80,41 +67,26 @@
         .hero-sub { font-size: 24px; color: var(--text-muted); font-weight: 400; }
         .hero-sub strong { color: var(--text-main); font-weight: 600; }
 
+        /* Badge Container Styling */
+        .linkedin-badge-header {
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
         /* --- About Section --- */
-        .about-section {
-            margin-bottom: 80px;
-        }
-
-        .about-section h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .about-text {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            max-width: 800px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-        }
+        .about-section { margin-bottom: 60px; }
+        .about-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
+        .about-text { font-size: 18px; color: var(--text-muted); line-height: 1.8; max-width: 800px; }
+        .about-text p { margin-bottom: 20px; }
 
         /* --- Projects --- */
         .section-title { font-size: 28px; font-weight: 700; margin-bottom: 30px; }
-        
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .project-card {
             background: var(--code-bg);
             padding: 30px;
-            border-radius: 20px;
+            border-radius: 24px;
             border: 1px solid var(--border);
             opacity: 0.8;
             text-align: center;
@@ -157,6 +129,7 @@
         @media (max-width: 768px) {
             header { flex-direction: column-reverse; text-align: center; }
             h1 { font-size: 42px; }
+            .linkedin-badge-header { min-width: 100%; }
             footer { flex-direction: column-reverse; gap: 24px; align-items: flex-start; }
         }
     </style>
@@ -174,14 +147,25 @@
                     <strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.
                 </p>
             </div>
-            <img src="images/keshav.jpg" alt="Keshav" class="profile-img">
+
+            <div class="linkedin-badge-header">
+                <div class="badge-base LI-profile-badge" 
+                     data-locale="en_US" 
+                     data-size="medium" 
+                     data-theme="light" 
+                     data-type="VERTICAL" 
+                     data-vanity="keshava-m-b928a699" 
+                     data-version="v1">
+                     <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/keshava-m-b928a699?trk=profile-badge">Keshava M.</a>
+                </div>
+            </div>
         </header>
 
         <section class="about-section">
             <h2>About Me</h2>
             <div class="about-text">
                 <p>
-                    I am a <strong>Site Reliability Engineer at Copart</strong>, dedicated to bridging the gap between large-scale infrastructure and seamless system performance. With a robust background in system administration and SRE experience, I focus on maintaining the critical balance between rapid innovation and rock-solid reliability.
+                    I am a <strong>Site Reliability Engineer at Copart</strong>, dedicated to bridging the gap between large-scale infrastructure and seamless system performance. With a robust background in system administration and 2 years of specialized SRE experience, I focus on maintaining the critical balance between rapid innovation and rock-solid reliability.
                 </p>
                 <p>
                     My approach centers on fostering collaborative environments where high operational efficiency and technical support go hand-in-hand. I am passionate about engineering scalable solutions that automate manual toil and ensure that technology remains a robust engine for delivering organizational success.
@@ -220,5 +204,6 @@
         </footer>
     </div>
 
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </body>
 </html>
