@@ -10,8 +10,24 @@
 
 * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
 
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--main);
+    color: var(--bg);
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
 body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--bg);
     color: var(--main);
     line-height: 1.6;
@@ -42,7 +58,7 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font: 500 11px "JetBrains Mono", monospace;
+    font: 500 11px ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     background: rgba(0,0,0,0.04);
     padding: 6px 14px;
     border-radius: 20px;
@@ -110,7 +126,7 @@ h2 { font-size: 22px; font-weight: 700; margin-bottom: 30px; letter-spacing: -0.
     display: flex;
     align-items: center;
     gap: 8px;
-    font: 500 13px "JetBrains Mono", monospace;
+    font: 500 13px ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     background: rgba(255,255,255,0.7);
     padding: 10px 16px;
     border-radius: 12px;
@@ -133,11 +149,11 @@ h2 { font-size: 22px; font-weight: 700; margin-bottom: 30px; letter-spacing: -0.
     display: block;
     padding: 32px 0;
     border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
-.card:hover { padding-left: 12px; }
+.card:hover { transform: translateX(12px); }
 .card:hover h3 { color: var(--accent); }
-.label { font: 600 11px "JetBrains Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.label { font: 600 11px ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 12px; }
 .card h3 { font-size: 24px; font-weight: 600; margin-bottom: 8px; transition: color 0.3s; }
 .card p { font-size: 16px; color: var(--muted); }
 
@@ -158,7 +174,7 @@ footer {
     color: var(--light);
 }
 
-.social { display: flex; gap: 24px; }
+.social { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px 24px; }
 .social-link {
     display: flex;
     align-items: center;
@@ -172,13 +188,185 @@ footer {
 .social-link img { width: 16px; height: 16px; opacity: 0.6; }
 .social-link:hover { color: var(--accent); }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.case-study-page {
+    background-position: 30% center;
+    background-size: cover;
+}
+
+.case-study {
+    padding-top: 80px;
+}
+
+.case-study nav {
+    margin-bottom: 60px;
+}
+
+.back-link {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.case-study-header {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.case-study-header h1 {
+    max-width: 720px;
+    font-size: 42px;
+}
+
+.metadata {
+    margin-top: 16px;
+    color: var(--light);
+    font: 500 13px ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.case-study h2 {
+    margin-top: 60px;
+    margin-bottom: 24px;
+    border-bottom: 0;
+    font-size: 26px;
+}
+
+.case-study-copy {
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: 19px;
+}
+
+.diagram-container {
+    margin: 40px 0;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    font: 400 14px ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.node {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    padding: 14px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+.node:not(:last-child)::after {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 50%;
+    color: var(--light);
+    content: "↓";
+    font-size: 20px;
+    transform: translateX(-50%);
+}
+
+.node strong,
+.node small {
+    display: block;
+}
+
+.node.highlight {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.result-card {
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.result-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.result-card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.case-study-footer {
+    display: block;
+    margin-top: 100px;
+    color: var(--light);
+    font-size: 14px;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 @media (max-width: 640px) {
     header { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
     h1 { font-size: 40px; }
     .grid { grid-template-columns: 1fr; gap: 0; }
     .grid-3 { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 32px; align-items: flex-start; }
+    .social { justify-content: flex-start; }
     .profile-wrap { padding: 8px; border-radius: 28px; }
     .profile-img { width: 80px; height: 80px; }
     .hero-copy { font-size: 16px; }
+    .case-study { padding-top: 40px; }
+    .case-study nav { margin-bottom: 40px; }
+    .case-study-header h1 { font-size: 32px; }
+    .case-study-copy { font-size: 17px; }
+    .diagram-container { padding: 24px 16px; }
+    .results-grid { grid-template-columns: 1fr; }
 }

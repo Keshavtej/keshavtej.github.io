@@ -3,218 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study | Auto-Remediation Architecture</title>
-    <style>
-        :root {
-            --bg: #ffffff;
-            --text-main: #1d1d1f;
-            --text-muted: #424245;
-            --text-light: #86868b;
-            --accent: #0066cc;
-            --code-bg: #f5f5f7;
-            --border: rgba(0,0,0,0.1); /* Softened for the merged look */
-        }
-
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-
-        body { 
-            font-family: "Inter", -apple-system, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            margin: 0; 
-            line-height: 1.6; 
-            letter-spacing: -0.01em;
-            min-height: 100vh;
-
-            /* --- ZOOMED BACKGROUND --- */
-            background-image: url('images/background.png');
-            background-repeat: no-repeat;
-            background-position: 30% center; /* Shifted as you requested */
-            background-size: 120%;           /* Consistent zoom with index */
-            background-attachment: fixed;
-        } /* <--- FIXED: Added missing closing brace here */
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 24px;
-            /* Removed background to merge with your background.png */
-        }
-
-        /* --- Navigation --- */
-        nav { margin-bottom: 60px; }
-        .back-link {
-            text-decoration: none;
-            color: var(--accent);
-            font-size: 16px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        /* --- Content --- */
-        header h1 { 
-            font-size: 42px; 
-            font-weight: 700; 
-            letter-spacing: -0.05em; 
-            margin-bottom: 16px; 
-            line-height: 1.1;
-        }
-        
-        .metadata { 
-            font-family: "SF Mono", monospace; 
-            font-size: 13px; 
-            color: var(--text-light); 
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 40px; 
-        }
-        
-        h2 { 
-            font-size: 26px; 
-            font-weight: 600; 
-            margin-top: 60px; 
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        p { margin-bottom: 24px; font-size: 19px; color: var(--text-muted); }
-
-        /* --- Technical Diagram Box (Glass Style) --- */
-        .diagram-container {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            font-family: "SF Mono", monospace;
-            font-size: 14px;
-        }
-
-        .node {
-            background: #fff;
-            padding: 14px 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            width: 100%;
-            max-width: 350px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .node.highlight { border-color: var(--accent); color: var(--accent); font-weight: 700; }
-        .arrow { color: var(--text-light); font-size: 20px; }
-
-        /* --- Results Grid --- */
-        .results-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .result-card {
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-        }
-
-        .result-card h4 { margin: 0 0 10px 0; font-size: 18px; color: var(--text-main); }
-        .result-card p { font-size: 15px; margin: 0; line-height: 1.6; }
-
-        footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        @media (max-width: 640px) {
-            header h1 { font-size: 32px; }
-            .results-grid { grid-template-columns: 1fr; }
-            .container { padding: 40px 20px; }
-        }
-    </style>
+    <meta name="description" content="A case study of an event-driven auto-remediation prototype built with New Relic and StackStorm.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Auto-Remediation Case Study | Keshav</title>
+    <link rel="canonical" href="https://keshavtej.dev/dissertation.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Auto-Remediation Architecture via StackStorm">
+    <meta property="og:description" content="An event-driven auto-remediation prototype connecting monitoring signals to safe recovery workflows.">
+    <meta property="og:url" content="https://keshavtej.dev/dissertation.html">
+    <meta property="og:image" content="https://keshavtej.dev/images/profile.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="case-study-page">
 
-    <div class="container">
-        <nav>
-            <a href="/" class="back-link">← Back to Portfolio</a>
-        </nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-        <header>
-            <h1>Auto-Remediation Architecture via StackStorm</h1>
-            <div class="metadata">MTech Dissertation • Systems Reliability • 2025</div>
+<div class="container case-study">
+    <nav aria-label="Breadcrumb">
+        <a href="./" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <main id="main-content">
+        <header class="case-study-header">
+            <div>
+                <h1>Auto-Remediation Architecture via StackStorm</h1>
+                <p class="metadata">M.Tech Dissertation <span aria-hidden="true">•</span> Systems Reliability <span aria-hidden="true">•</span> 2025</p>
+            </div>
         </header>
 
-        <section>
-            <p>
-                In high-scale environments, manual intervention for routine service failures is a primary source of <strong>operational toil</strong>. My dissertation explored a closed-loop automation system designed to detect, diagnose, and resolve service outages without human interaction.
+        <section aria-labelledby="overview-heading">
+            <h2 id="overview-heading" class="visually-hidden">Overview</h2>
+            <p class="case-study-copy">
+                In high-scale environments, manual intervention for routine service failures is a primary source of <strong>operational toil</strong>. My dissertation explored a closed-loop automation prototype designed to detect, diagnose, and resolve known service outages without human interaction.
             </p>
 
             <h2>The Workflow</h2>
-            <p>The architecture leverages event-driven automation to bridge the gap between monitoring signals and administrative actions.</p>
+            <p class="case-study-copy">The architecture uses event-driven automation to connect monitoring signals with controlled administrative actions.</p>
 
-            <div class="diagram-container">
-                <div class="flow">
-                    <div class="node"><strong>New Relic</strong><br><small>Service Down Detection</small></div>
-                    <div class="arrow">↓</div>
-                    <div class="node highlight"><strong>Webhook Payload</strong><br><small>JSON Event Data</small></div>
-                    <div class="arrow">↓</div>
-                    <div class="node"><strong>StackStorm Engine</strong><br><small>Rule Matching & Logic</small></div>
-                    <div class="arrow">↓</div>
-                    <div class="node highlight"><strong>Auto-Remediation</strong><br><small>Service Restart Command</small></div>
-                    <div class="arrow">↓</div>
-                    <div class="node"><strong>MS Teams</strong><br><small>Outcome Notification</small></div>
-                </div>
+            <div class="diagram-container" aria-labelledby="workflow-caption">
+                <p id="workflow-caption" class="visually-hidden">Auto-remediation workflow from service detection through outcome notification.</p>
+                <ol class="flow">
+                    <li class="node"><strong>New Relic</strong><small>Service-down detection</small></li>
+                    <li class="node highlight"><strong>Webhook Payload</strong><small>JSON event data</small></li>
+                    <li class="node"><strong>StackStorm Engine</strong><small>Rule matching and logic</small></li>
+                    <li class="node highlight"><strong>Auto-Remediation</strong><small>Service restart command</small></li>
+                    <li class="node"><strong>Microsoft Teams</strong><small>Outcome notification</small></li>
+                </ol>
             </div>
 
             <h2>Technical Deep Dive</h2>
-            <p>
-                When <strong>New Relic</strong> identifies that a service process has terminated or is unresponsive, it triggers a <strong>Critical Alert</strong>. This alert is configured to send a POST request via Webhook to the StackStorm API endpoint.
+            <p class="case-study-copy">
+                When <strong>New Relic</strong> identifies that a service process has terminated or is unresponsive, it triggers a critical alert. The alert sends a POST request by webhook to the StackStorm API endpoint.
             </p>
-            <p>
-                Inside <strong>StackStorm</strong>, a custom rule parses the incoming JSON. If the alert matches the "Service Down" pattern, an Orquesta workflow is initiated to execute a secure SSH or Kubernetes-native command to restart the specific service.
+            <p class="case-study-copy">
+                Inside <strong>StackStorm</strong>, a custom rule parses the incoming JSON. If the alert matches the known service-down pattern, an Orquesta workflow executes an approved SSH or Kubernetes-native command to restart the affected service.
             </p>
 
-            <h2>Impact & Results</h2>
+            <h2>Prototype Results</h2>
+            <p class="case-study-copy">In the dissertation test environment, the prototype produced the following results. Production outcomes depend on infrastructure, alert delivery, and recovery-command safeguards.</p>
             <div class="results-grid">
-                <div class="result-card">
-                    <h4>Rapid Recovery</h4>
-                    <p>Reduced MTTR from minutes (human response) to sub-10 seconds (automated response).</p>
-                </div>
-                <div class="result-card">
-                    <h4>Zero Toil</h4>
-                    <p>Completely eliminated manual tickets for known L1 service failures.</p>
-                </div>
-                <div class="result-card">
-                    <h4>Visibility</h4>
-                    <p>Every automated action provides a full audit trail directly in MS Teams channels.</p>
-                </div>
-                <div class="result-card">
-                    <h4>Stability</h4>
-                    <p>Ensured 99.9% availability for critical internal microservices.</p>
-                </div>
+                <article class="result-card">
+                    <h3>Rapid Recovery</h3>
+                    <p>Completed the tested recovery loop in under 10 seconds, compared with a manual response measured in minutes.</p>
+                </article>
+                <article class="result-card">
+                    <h3>Reduced Toil</h3>
+                    <p>Removed manual ticket handling for the known Level 1 failure scenarios included in the prototype.</p>
+                </article>
+                <article class="result-card">
+                    <h3>Visibility</h3>
+                    <p>Recorded each automated action and delivered its outcome to a Microsoft Teams channel.</p>
+                </article>
+                <article class="result-card">
+                    <h3>Reliability</h3>
+                    <p>Demonstrated how automated recovery can support service-availability objectives for known failure modes.</p>
+                </article>
             </div>
         </section>
+    </main>
 
-        <footer>
-            © 2026 Keshav • Built for Systems & Reliability.
-        </footer>
-    </div>
+    <footer class="case-study-footer">
+        <p>© <span id="year"></span> Keshav <span aria-hidden="true">•</span> Built for systems and reliability.</p>
+    </footer>
+</div>
 
+<script src="js/main.js" defer></script>
 </body>
 </html>
