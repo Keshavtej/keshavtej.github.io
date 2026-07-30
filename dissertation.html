@@ -16,11 +16,20 @@
     <meta property="og:image" content="https://keshavtej.dev/images/profile.png">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+    <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="case-study-page">
 
 <div class="container case-study">
+    <div class="site-toolbar case-study-toolbar">
+        <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+            <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
+            <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+            <button type="button" data-theme-choice="black" aria-pressed="false">Black</button>
+        </div>
+    </div>
     <nav aria-label="Breadcrumb">
         <a href="./" class="back-link">← Back to Portfolio</a>
     </nav>

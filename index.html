@@ -16,15 +16,23 @@
     <meta property="og:image" content="https://keshavtej.dev/images/profile.png">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+    <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
 <div class="container">
+    <div class="site-toolbar">
+        <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+            <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
+            <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+            <button type="button" data-theme-choice="black" aria-pressed="false">Black</button>
+        </div>
+    </div>
     <main id="main-content">
     <header>
         <div class="hero">
-            <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
             <h1>I'm Keshav.</h1>
             <p class="hero-sub"><strong>Site Reliability Engineer</strong></p>
             <p class="hero-copy">I build reliable platforms, automate repetitive operations, and help communities learn together through events and talks.</p>
@@ -33,6 +41,30 @@
             <img src="images/profile.webp" alt="Portrait of Keshav" class="profile-img" width="120" height="120" decoding="async" fetchpriority="high">
         </div>
     </header>
+
+    <section class="ops-art" aria-labelledby="ops-art-title">
+        <div class="ops-art-copy">
+            <h2 id="ops-art-title">Reliability in motion</h2>
+            <p>Explore two sides of my work. Point to a mode to change the system.</p>
+            <div class="ops-art-controls" aria-label="Artwork mode">
+                <button class="ops-mode is-active" type="button" data-mode="sre" aria-pressed="true">
+                    <span>SRE</span>
+                    <small>Observe · respond · recover</small>
+                </button>
+                <button class="ops-mode" type="button" data-mode="devops" aria-pressed="false">
+                    <span>DevOps</span>
+                    <small>Build · ship · improve</small>
+                </button>
+            </div>
+        </div>
+        <div class="ops-canvas-wrap">
+            <canvas id="ops-canvas" aria-label="Animated pixel artwork showing an SRE reliability system"></canvas>
+            <div class="ops-canvas-status" aria-hidden="true">
+                <span class="ops-canvas-mode">SRE</span>
+                <span>system nominal</span>
+            </div>
+        </div>
+    </section>
 
     <section id="about">
         <h2>About Me</h2>
