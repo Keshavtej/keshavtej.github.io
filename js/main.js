@@ -26,6 +26,18 @@ themeButtons.forEach((button) => {
 
 setTheme(document.documentElement.dataset.theme);
 
+const readingProgressBar = document.getElementById("reading-progress-bar");
+if (readingProgressBar) {
+    const updateReadingProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+        readingProgressBar.style.transform = `scaleX(${progress})`;
+    };
+    updateReadingProgress();
+    window.addEventListener("scroll", updateReadingProgress, { passive: true });
+    window.addEventListener("resize", updateReadingProgress);
+}
+
 const canvas = document.getElementById("ops-canvas");
 
 if (canvas) {

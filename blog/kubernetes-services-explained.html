@@ -21,6 +21,8 @@
 </head>
 <body class="article-page">
 
+<div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+
 <div class="container article-shell article-shell-wide">
     <div class="site-toolbar">
         <div class="status"><span class="dot" aria-hidden="true"></span> knowledge_base = online</div>
@@ -44,6 +46,11 @@
             <p class="article-meta">Kubernetes fundamentals</p>
             <h1>Kubernetes Services Explained: Why They Exist and the Problem They Solve</h1>
             <p class="article-deck">Understand how Kubernetes Services provide a stable endpoint, enable load balancing, and keep applications reliable even as Pods come and go.</p>
+            <div class="article-facts" aria-label="Article details">
+                <span>8 min read</span>
+                <span>Beginner friendly</span>
+                <span>Networking</span>
+            </div>
             <div class="article-author">
                 <img src="../images/profile.webp" alt="Keshav" width="52" height="52">
                 <div>
@@ -52,6 +59,17 @@
                 </div>
             </div>
         </header>
+
+        <details class="mobile-toc">
+            <summary>Jump to a section</summary>
+            <ol>
+                <li><a href="#pods-are-ephemeral">Why Pods are ephemeral</a></li>
+                <li><a href="#kubernetes-service">How a Service solves it</a></li>
+                <li><a href="#labels-and-selectors">Labels and selectors</a></li>
+                <li><a href="#scaling">Scaling and load balancing</a></li>
+                <li><a href="#key-takeaways">Key takeaways</a></li>
+            </ol>
+        </details>
 
         <div class="article-layout">
         <article class="article-content">

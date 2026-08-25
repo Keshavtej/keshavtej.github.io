@@ -24,6 +24,12 @@
 <div class="container">
     <div class="site-toolbar">
         <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#writing">Blog</a>
+            <a href="#community">Community</a>
+        </nav>
         <div class="theme-switcher" role="group" aria-label="Color theme">
             <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
             <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
@@ -91,18 +97,18 @@
 
     <section id="focus">
         <h2>Current Focus</h2>
-        <div class="grid grid-3">
-            <a href="#work" class="card">
+        <div class="grid grid-3 focus-grid">
+            <a href="#work" class="card color-card color-card-blue">
                 <span class="label">Reliability</span>
                 <h3>Designing systems that fail gracefully</h3>
                 <p>Building observability, runbooks, and recovery paths that keep services understandable under pressure.</p>
             </a>
-            <a href="#work" class="card">
+            <a href="#work" class="card color-card color-card-violet">
                 <span class="label">Automation</span>
                 <h3>Turning repeat work into safe automation</h3>
                 <p>Using event-driven workflows to remove toil without hiding the operator from the loop.</p>
             </a>
-            <a href="#community" class="card">
+            <a href="#community" class="card color-card color-card-orange">
                 <span class="label">Community</span>
                 <h3>Helping engineering communities grow</h3>
                 <p>Leading and attending events that connect SRE, cloud-native, and open-source practitioners.</p>
@@ -112,7 +118,7 @@
 
     <section id="work">
         <h2>Selected Work</h2>
-        <a href="dissertation.html" class="card">
+        <a href="dissertation.html" class="card project-card">
             <span class="label">MTech Dissertation</span>
             <h3>Auto-Remediation via StackStorm</h3>
             <p>Building event-driven automation loops that detect, diagnose, and resolve service outages autonomously.</p>
