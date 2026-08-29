@@ -1,211 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Keshav's portfolio focused on reliability engineering, platform automation, and community work.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Keshav | SRE, Automation &amp; Community</title>
-    <link rel="canonical" href="https://keshavtej.dev/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Keshav | SRE, Automation &amp; Community">
-    <meta property="og:description" content="Keshav's portfolio focused on reliability engineering, platform automation, and community work.">
-    <meta property="og:url" content="https://keshavtej.dev/">
-    <meta property="og:image" content="https://keshavtej.dev/images/profile.png">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-    <script src="js/theme.js"></script>
-    <link rel="stylesheet" href="css/main.css?v=20260805">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keshav's portfolio: a Site Reliability Engineer focused on systems, SRE, DevOps, and safe automation.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin"><title>Keshav — Site Reliability Engineer</title>
+    <link rel="canonical" href="https://keshavtej.dev/"><meta property="og:type" content="website"><meta property="og:title" content="Keshav — Site Reliability Engineer"><meta property="og:description" content="Portfolio of Keshav, a Site Reliability Engineer focused on systems, SRE, DevOps, and safe automation."><meta property="og:url" content="https://keshavtej.dev/"><meta property="og:image" content="https://keshavtej.dev/images/profile-og.jpg"><meta property="og:image:width" content="600"><meta property="og:image:height" content="600"><meta property="og:image:alt" content="Keshav, Site Reliability Engineer"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Keshav — Site Reliability Engineer"><meta name="twitter:description" content="Portfolio of Keshav, a Site Reliability Engineer focused on systems, SRE, DevOps, and safe automation."><meta name="twitter:image" content="https://keshavtej.dev/images/profile-og.jpg">
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml"><script src="js/theme.js"></script><link rel="stylesheet" href="css/site.css?v=20260830">
 </head>
-<body>
-
-<div class="container">
-    <div class="site-toolbar">
-        <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#writing">Blog</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#community">Community</a>
-        </nav>
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
-            <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
-            <button type="button" data-theme-choice="black" aria-pressed="false">Black</button>
-        </div>
-    </div>
-    <main id="main-content">
-    <header>
-        <div class="hero">
-            <h1>I'm Keshav.</h1>
-            <p class="hero-sub"><strong>Site Reliability Engineer</strong></p>
-            <p class="hero-copy">I build reliable platforms, automate repetitive operations, and help communities learn together through events and talks.</p>
-            <div class="hero-actions">
-                <a href="blog/kubernetes-services-explained.html" class="text-link">Read the blog <span aria-hidden="true">→</span></a>
-            </div>
-        </div>
-        <div class="profile-wrap">
-            <img src="images/profile.webp" alt="Portrait of Keshav" class="profile-img" width="120" height="120" decoding="async" fetchpriority="high">
-        </div>
+<body><a class="skip-link" href="#main-content">Skip to main content</a><div class="site-shell">
+    <header class="topbar">
+        <a class="wordmark" href="index.html" aria-label="Keshav, home"><span class="wordmark-mark wordmark-photo"><img src="images/profile.webp" alt=""></span><span>Keshav</span></a>
+        <nav class="main-nav" aria-label="Primary navigation"><a href="about.html">About</a><a href="work.html">Work</a><a href="writing.html">Writing</a><a href="credentials.html">Credentials</a><a href="community.html">Community</a></nav>
+        <div class="topbar-tools"><span class="availability"><i aria-hidden="true"></i> Available to connect</span><div class="theme-switcher" role="group" aria-label="Color theme"><button type="button" data-theme-choice="light" aria-pressed="true" aria-label="Use light theme">L</button><button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="Use dark theme">D</button><button type="button" data-theme-choice="black" aria-pressed="false" aria-label="Use black theme">B</button></div></div>
     </header>
-
-    <section class="ops-art" aria-labelledby="ops-art-title">
-        <div class="ops-art-copy">
-            <h2 id="ops-art-title">Reliability in motion</h2>
-            <p>See how SRE and DevOps work together across reliable operations and continuous delivery.<br>Choose a mode to explore the system.</p>
-            <div class="ops-art-controls" aria-label="Artwork mode">
-                <button class="ops-mode is-active" type="button" data-mode="sre" aria-pressed="true">
-                    <span>SRE</span>
-                    <small>Observe · respond · recover</small>
-                </button>
-                <button class="ops-mode" type="button" data-mode="devops" aria-pressed="false">
-                    <span>DevOps</span>
-                    <small>Build · ship · improve</small>
-                </button>
+    <main id="main-content">
+        <section class="hero-home" aria-labelledby="hero-title">
+            <div class="hero-home-copy">
+                <p class="eyebrow"><span>Portfolio</span> Systems / SRE / DevOps</p>
+                <h1 id="hero-title">I’m Keshav.<em>Site Reliability<br>Engineer.</em></h1>
+                <p class="hero-lede">I work across systems infrastructure, SRE, and DevOps—focused on reliable operations and safe automation.</p>
+                <div class="social-row" aria-label="Social links">
+                    <a href="https://github.com/keshavtej" target="_blank" rel="noopener noreferrer"><img src="icons/git.png" alt="" width="20" height="20">GitHub</a>
+                    <a href="https://www.linkedin.com/in/keshavtej/" target="_blank" rel="noopener noreferrer"><img src="icons/linkedin.png" alt="" width="20" height="20">LinkedIn</a>
+                    <a href="mailto:keshav.tej@gmail.com"><img src="icons/gmail.png" alt="" width="20" height="20">Email</a>
+                    <a href="https://wa.me/918801080683" target="_blank" rel="noopener noreferrer"><img src="icons/whatsapp.png" alt="" width="20" height="20">WhatsApp</a>
+                </div>
             </div>
-        </div>
-        <div class="ops-canvas-wrap">
-            <canvas id="ops-canvas" aria-label="Animated pixel artwork showing an SRE platform supporting observability, reliability, incident management, and automation"></canvas>
-            <div class="ops-canvas-status" aria-hidden="true">
-                <span class="ops-canvas-mode">SRE</span>
-                <span>system nominal</span>
+            <div class="hero-visual ops-art" data-active-mode="sre">
+                <div class="visual-topline"><span>RELIABILITY_OS / INTERACTIVE</span><span class="live-pulse">LIVE</span></div>
+                <div class="hero-canvas-wrap">
+                    <canvas id="ops-canvas" aria-label="Animated SRE system using AI-assisted signal correlation across observability, reliability, incident management, and automation"></canvas>
+                    <div class="ops-canvas-status" aria-hidden="true"><span class="ops-canvas-mode">SRE</span><span>system nominal</span></div>
+                </div>
+                <div class="ops-art-controls" aria-label="Artwork mode">
+                    <button class="ops-mode is-active" type="button" data-mode="sre" aria-pressed="true"><span>SRE</span><small>Observe · respond · recover</small></button>
+                    <button class="ops-mode" type="button" data-mode="devops" aria-pressed="false"><span>DevOps</span><small>Build · ship · improve</small></button>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-text">
-            <p>I am a <strong>Site Reliability Engineer</strong> focused on scalable, resilient, and automation-first systems. I like turning messy operational work into repeatable patterns that make incidents easier to prevent, detect, and recover from.</p>
-            <p>My M.Tech work on auto-remediation with StackStorm shaped how I think about event-driven operations: detect early, enrich the signal, and recover with as little manual effort as possible.</p>
-            <p>Outside my day job, I stay active in the community through SREDAY Hyderabad, SRE Hyderabadi, and PyConf Hyderabad, helping create spaces where engineers can learn, share, and grow together.</p>
-        </div>
-        
-        <div class="skills">
-            <div class="tag"><img src="icons/linux.png" alt="" width="18" height="18" loading="lazy" decoding="async"> Linux</div>
-            <div class="tag"><img src="icons/kubernetes.png" alt="" width="18" height="18" loading="lazy" decoding="async"> Kubernetes</div>
-            <div class="tag"><img src="icons/docker.png" alt="" width="18" height="18" loading="lazy" decoding="async"> Docker</div>
-            <div class="tag"><img src="icons/vmware.jpg" alt="" width="18" height="18" loading="lazy" decoding="async"> VMware</div>
-            <div class="tag"><img src="icons/python.png" alt="" width="18" height="18" loading="lazy" decoding="async"> Python</div>
-            <div class="tag"><img src="icons/terraform.png" alt="" width="18" height="18" loading="lazy" decoding="async"> Terraform</div>
-            <div class="tag"><img src="icons/stackstorm.jpg" alt="" width="18" height="18" loading="lazy" decoding="async"> StackStorm</div>
-            <div class="tag"><img src="icons/git.png" alt="" width="18" height="18" loading="lazy" decoding="async"> GitHub</div>
-        </div>
-    </section>
-
-    <section id="focus">
-        <h2>Current Focus</h2>
-        <div class="grid grid-3 focus-grid">
-            <a href="#work" class="card color-card color-card-blue">
-                <span class="label">Reliability</span>
-                <h3>Designing systems that fail gracefully</h3>
-                <p>Building observability, runbooks, and recovery paths that keep services understandable under pressure.</p>
-            </a>
-            <a href="#work" class="card color-card color-card-violet">
-                <span class="label">Automation</span>
-                <h3>Turning repeat work into safe automation</h3>
-                <p>Using event-driven workflows to remove toil without hiding the operator from the loop.</p>
-            </a>
-            <a href="#community" class="card color-card color-card-indigo">
-                <span class="label">Community</span>
-                <h3>Helping engineering communities grow</h3>
-                <p>Leading and attending events that connect SRE, cloud-native, and open-source practitioners.</p>
-            </a>
-        </div>
-    </section>
-
-    <section id="work">
-        <h2>Selected Work</h2>
-        <a href="dissertation.html" class="card project-card">
-            <span class="label">M.Tech Dissertation</span>
-            <h3>Auto-Remediation via StackStorm</h3>
-            <p>Building event-driven automation loops that detect, classify, and remediate known service failures through controlled workflows.</p>
-        </a>
-    </section>
-
-    <section id="writing" aria-labelledby="writing-title">
-        <h2 id="writing-title">Writing</h2>
-        <a href="blog/kubernetes-services-explained.html" class="writing-intro">
-            <div>
-                <span class="label">Kubernetes · Networking</span>
-                <h3>Kubernetes Services Explained</h3>
-            </div>
-            <p>Why Services exist, how they give ephemeral Pods a stable identity, and what happens when an application scales.</p>
-            <span class="writing-arrow" aria-hidden="true">→</span>
-        </a>
-    </section>
-
-    <section id="certifications" aria-labelledby="certifications-title">
-        <h2 id="certifications-title">Certifications</h2>
-        <div class="certification-card">
-            <div class="certification-copy">
-                <span class="label">Verified credential</span>
-                <h3>KCNA: Kubernetes and Cloud Native Associate</h3>
-                <p>Issued by The Linux Foundation and verified through Credly. Select the badge to view its skills, issuance details, and verification record.</p>
-            </div>
-            <a class="credly-badge-wrap" href="https://www.credly.com/badges/b7d3f01a-5be7-4289-a58d-c9e9d49cff52/public_url" target="_blank" rel="noopener noreferrer" aria-label="Verify KCNA certification on Credly">
-                <img src="images/kcna-badge.webp" alt="KCNA: Kubernetes and Cloud Native Associate badge" width="180" height="180" decoding="async">
-                <span>Verify on Credly <span aria-hidden="true">↗</span></span>
-            </a>
-        </div>
-    </section>
-
-    <section id="community">
-        <h2>Community</h2>
-        <div class="grid">
-            <a href="https://sreday.com/2026-hyderabad-q2/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Volunteer lead</span>
-                <h3>SREDAY Hyderabad</h3>
-                <p>Hosted by the SRE Hyderabadi team with sessions focused on reliability engineering.</p>
-            </a>
-            <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-india/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Attendee</span>
-                <h3>KubeCon + CloudNativeCon India 2026</h3>
-                <p>Exploring developments across the cloud-native ecosystem and the future of Kubernetes.</p>
-            </a>
-            <a href="https://events.linuxfoundation.org/opensearchcon-india/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Attendee</span>
-                <h3>OpenSearchCon India 2026</h3>
-                <p>Learning from the OpenSearch community through sessions on search and observability.</p>
-            </a>
-            <a href="https://events.linuxfoundation.org/open-source-summit-india/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Attendee</span>
-                <h3>Open Source Summit India 2026</h3>
-                <p>Connecting with the broader open source community and platform engineering teams.</p>
-            </a>
-            <a href="https://srehyderabadi.com/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Volunteer</span>
-                <h3>SRE Hyderabadi</h3>
-                <p>Organizing local meetups and sessions on reliability engineering.</p>
-            </a>
-            <a href="https://kccncind2025.sched.com/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Attendee</span>
-                <h3>KubeCon + CloudNativeCon India 2025</h3>
-                <p>Exploring developments across the cloud-native ecosystem and the future of Kubernetes.</p>
-            </a>
-            <a href="https://2026.pyconfhyd.org/" class="card" target="_blank" rel="noopener noreferrer">
-                <span class="label">Volunteer</span>
-                <h3>PyConf Hyderabad</h3>
-                <p>Contributing to Python community events and conference activities.</p>
-            </a>
-        </div>
-    </section>
+        </section>
     </main>
-
-    <footer>
-        <p class="footer-copy">© <span id="year"></span> Keshav. All rights reserved.</p>
-        <div class="social">
-            <a href="mailto:keshav.tej@gmail.com" class="social-link"><img src="icons/gmail.png" alt="" width="16" height="16" loading="lazy" decoding="async"> Email</a>
-            <a href="https://wa.me/918801080683" class="social-link" target="_blank" rel="noopener noreferrer"><img src="icons/whatsapp.png" alt="" width="16" height="16" loading="lazy" decoding="async"> WhatsApp</a>
-            <a href="https://www.linkedin.com/in/keshavtej/" class="social-link" target="_blank" rel="noopener noreferrer"><img src="icons/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async"> LinkedIn</a>
-            <a href="https://github.com/keshavtej" class="social-link" target="_blank" rel="noopener noreferrer"><img src="icons/git.png" alt="" width="16" height="16" loading="lazy" decoding="async"> GitHub</a>
-        </div>
-    </footer>
-</div>
-
-<script src="js/main.js" defer></script>
-
-</body>
-</html>
+</div><script src="js/main.js" defer></script></body></html>

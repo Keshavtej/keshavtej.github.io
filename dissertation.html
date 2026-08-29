@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A case study of an event-driven auto-remediation prototype built with New Relic and StackStorm.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Auto-Remediation Case Study | Keshav</title>
     <link rel="canonical" href="https://keshavtej.dev/dissertation.html">
@@ -12,25 +12,33 @@
     <meta property="og:title" content="Auto-Remediation Architecture via StackStorm">
     <meta property="og:description" content="An event-driven auto-remediation prototype connecting monitoring signals to safe recovery workflows.">
     <meta property="og:url" content="https://keshavtej.dev/dissertation.html">
-    <meta property="og:image" content="https://keshavtej.dev/images/profile.png">
+    <meta property="og:image" content="https://keshavtej.dev/images/profile-og.jpg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Keshav, Site Reliability Engineer">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Auto-Remediation Architecture via StackStorm">
+    <meta name="twitter:description" content="An event-driven auto-remediation prototype connecting monitoring signals to safe recovery workflows.">
+    <meta name="twitter:image" content="https://keshavtej.dev/images/profile-og.jpg">
     <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
     <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/main.css?v=20260805">
+    <link rel="stylesheet" href="css/site.css?v=20260830">
 </head>
 <body class="case-study-page">
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="site-shell">
+    <header class="topbar">
+        <a class="wordmark" href="index.html" aria-label="Keshav, home"><span class="wordmark-mark wordmark-photo"><img src="images/profile.webp" alt=""></span><span>Keshav</span></a>
+        <nav class="main-nav" aria-label="Primary navigation"><a href="about.html">About</a><a href="work.html" aria-current="page">Work</a><a href="writing.html">Writing</a><a href="credentials.html">Credentials</a><a href="community.html">Community</a></nav>
+        <div class="topbar-tools"><span class="availability"><i aria-hidden="true"></i> Systems case study</span><div class="theme-switcher" role="group" aria-label="Color theme"><button type="button" data-theme-choice="light" aria-pressed="true" aria-label="Use light theme">L</button><button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="Use dark theme">D</button><button type="button" data-theme-choice="black" aria-pressed="false" aria-label="Use black theme">B</button></div></div>
+    </header>
+
 <div class="container case-study">
-    <div class="site-toolbar case-study-toolbar">
-        <div class="status"><span class="dot" aria-hidden="true"></span> system_status = online</div>
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
-            <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
-            <button type="button" data-theme-choice="black" aria-pressed="false">Black</button>
-        </div>
-    </div>
     <nav aria-label="Breadcrumb">
-        <a href="./" class="back-link">← Back to Portfolio</a>
+        <a href="work.html" class="back-link">← Back to Work</a>
     </nav>
 
     <main id="main-content">
@@ -92,9 +100,9 @@
         </section>
     </main>
 
-    <footer class="case-study-footer">
-        <p>© <span id="year"></span> Keshav <span aria-hidden="true">•</span> Built for systems and reliability.</p>
-    </footer>
+</div>
+
+    <footer class="site-footer"><div><strong>Reliability through<br>controlled recovery.</strong><a href="work.html">More systems work</a></div><div class="footer-meta"><span>M.Tech dissertation / 2025</span><span>© <span id="year"></span> Keshav</span></div></footer>
 </div>
 
 <script src="js/main.js" defer></script>

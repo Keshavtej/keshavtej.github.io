@@ -57,13 +57,13 @@ if (canvas) {
             mosaicAlpha: 1
         },
         devops: {
-            background: "#101827",
-            dark: "#1e293b",
-            mid: "#3730a3",
-            bright: "#818cf8",
-            signal: "#e0e7ff",
-            cool: "#60a5fa",
-            mosaicAlpha: 0.62
+            background: "#111d17",
+            dark: "#21382d",
+            mid: "#46685d",
+            bright: "#84aca2",
+            signal: "#d5e7e2",
+            cool: "#6f958b",
+            mosaicAlpha: 0.74
         }
     };
 
@@ -72,6 +72,8 @@ if (canvas) {
     let height = 0;
     let animationFrame = 0;
     let startTime = performance.now();
+    let artworkVisible = true;
+    let pageVisible = !document.hidden;
 
     function hash(x, y, seed = 0) {
         const value = Math.sin(x * 127.1 + y * 311.7 + seed * 74.7) * 43758.5453;
@@ -86,7 +88,7 @@ if (canvas) {
         canvas.width = Math.round(width * ratio);
         canvas.height = Math.round(height * ratio);
         context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        draw(performance.now());
+        restartAnimation();
     }
 
     function pixelRect(x, y, w, h, color, alpha = 1) {
@@ -199,11 +201,17 @@ if (canvas) {
 
         nodes.forEach(([x, y]) => connect(centerX, centerY, x, y, colors, travel));
         drawNode(centerX, centerY, "SRE CORE", colors, pulse);
+        pixelRect(centerX - 34, centerY - 31, 68, 14, colors.cool, 0.24);
+        context.fillStyle = colors.signal;
+        context.font = "700 8px ui-monospace, monospace";
+        context.textAlign = "center";
+        context.fillText("AI ANALYSIS", Math.round(centerX), Math.round(centerY - 21));
+        context.textAlign = "left";
         nodes.forEach(([x, y, label], index) => drawNode(x, y, label, colors, (pulse + index * 0.19) % 1));
 
         context.fillStyle = colors.signal;
         context.font = "700 12px ui-monospace, monospace";
-        context.fillText("99.99% UPTIME", 18, 26);
+        context.fillText("AI SIGNAL CORRELATION", 18, 26);
         pixelRect(18, 38, Math.max(96, width * 0.28), 5, colors.dark);
         pixelRect(18, 38, Math.max(92, width * 0.27), 5, colors.signal, 0.82);
     }
@@ -217,6 +225,31 @@ if (canvas) {
             [width * 0.63, "TEST"],
             [width * 0.87, "SHIP"]
         ];
+
+        const assistTop = height * 0.23;
+        const assistLeft = width * 0.18;
+        const assistWidth = width * 0.64;
+        context.strokeStyle = colors.cool;
+        context.globalAlpha = 0.52;
+        context.strokeRect(assistLeft, assistTop - 12, assistWidth, 24);
+        context.globalAlpha = 1;
+        context.fillStyle = colors.signal;
+        context.font = `${width < 330 ? 7 : 9}px ui-monospace, monospace`;
+        context.textAlign = "center";
+        context.fillText("AI ASSIST  /  REVIEW · TEST · ANALYZE", width * 0.5, assistTop + 3);
+        context.textAlign = "left";
+
+        stages.slice(0, 3).forEach(([x]) => {
+            context.strokeStyle = colors.cool;
+            context.globalAlpha = 0.20;
+            context.setLineDash([2, 4]);
+            context.beginPath();
+            context.moveTo(x, assistTop + 12);
+            context.lineTo(x, y - (width < 330 ? 24 : 30));
+            context.stroke();
+            context.setLineDash([]);
+            context.globalAlpha = 1;
+        });
 
         for (let index = 0; index < stages.length - 1; index += 1) {
             const nodeOffset = width < 330 ? 30 : 36;
@@ -252,9 +285,17 @@ if (canvas) {
             drawDevops(colors, time);
         }
 
-        if (!reducedMotion.matches) {
+        if (!reducedMotion.matches && artworkVisible && pageVisible) {
             animationFrame = requestAnimationFrame(draw);
+        } else {
+            animationFrame = 0;
         }
+    }
+
+    function restartAnimation() {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
+        draw(performance.now());
     }
 
     function setMode(nextMode) {
@@ -269,13 +310,12 @@ if (canvas) {
             control.setAttribute("aria-pressed", String(active));
         });
         canvas.setAttribute("aria-label", mode === "sre"
-            ? "Animated pixel artwork showing an SRE platform supporting observability, reliability, incident management, and automation"
-            : "Animated pixel artwork showing a DevOps delivery pipeline");
+            ? "Animated pixel artwork showing AI-assisted signal correlation within an SRE platform"
+            : "Animated pixel artwork showing AI verification within a DevOps delivery pipeline");
         if (modeLabel) {
             modeLabel.textContent = mode.toUpperCase();
         }
-        cancelAnimationFrame(animationFrame);
-        draw(performance.now());
+        restartAnimation();
     }
 
     controls.forEach((control) => {
@@ -286,12 +326,35 @@ if (canvas) {
     });
 
     reducedMotion.addEventListener("change", () => {
-        cancelAnimationFrame(animationFrame);
-        draw(performance.now());
+        restartAnimation();
     });
 
     const resizeObserver = new ResizeObserver(resizeCanvas);
     resizeObserver.observe(canvas.parentElement);
+
+    if ("IntersectionObserver" in window) {
+        const visibilityObserver = new IntersectionObserver(([entry]) => {
+            artworkVisible = entry.isIntersecting;
+            if (artworkVisible) {
+                restartAnimation();
+            } else {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = 0;
+            }
+        }, { threshold: 0.01 });
+        visibilityObserver.observe(artwork || canvas);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+        pageVisible = !document.hidden;
+        if (pageVisible) {
+            restartAnimation();
+        } else {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = 0;
+        }
+    });
+
     if (artwork) {
         artwork.dataset.activeMode = mode;
     }
